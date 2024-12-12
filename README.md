@@ -17,7 +17,7 @@ Advanced chat completion tool with full message history support.
   "name": "perplexity_chat",
   "description": "Generate a chat completion using Perplexity AI",
   "parameters": {
-    "model": "string (optional) - One of: mixtral-8x7b-instruct, codellama-34b-instruct, sonar-small-chat, sonar-small-online",
+    "model": "string (optional) - One of: llama-3.1-sonar-small-128k-online, llama-3.1-sonar-large-128k-online, llama-3.1-sonar-huge-128k-online",
     "messages": "array of {role, content} objects - The conversation history",
     "temperature": "number (optional) - Sampling temperature between 0-2"
   }
