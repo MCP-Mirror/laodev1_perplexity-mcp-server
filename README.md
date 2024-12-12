@@ -9,6 +9,7 @@ The Perplexity MCP Server is a Node.js implementation of Anthropic's Model Conte
 The server currently implements two main tools:
 
 ### 1. perplexity_chat
+
 Advanced chat completion tool with full message history support.
 
 ```javascript
@@ -24,6 +25,7 @@ Advanced chat completion tool with full message history support.
 ```
 
 ### 2. perplexity_ask
+
 Simplified single-query interface for quick questions.
 
 ```javascript
@@ -40,17 +42,20 @@ Simplified single-query interface for quick questions.
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/perplexity-mcp-server.git
    cd perplexity-mcp-server
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Create `.env` file:
+
    ```env
    PERPLEXITY_API_KEY=your-api-key-here
    ```
@@ -68,17 +73,22 @@ To add this server to Claude Desktop, update your `claude_desktop_config.json`:
 {
   "mcp": {
     "servers": [
-      {
-        "name": "perplexity-mcp-server",
-        "command": "node /path/to/perplexity-mcp-server/dist/index.js",
-        "enabled": true
+       "perplexity": {
+      "command": "node",
+      "args": [
+        "path\\to\\perplexity-mcp-server\\dist\\index.js"
+      ],
+      "env": {
+        "PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY"
       }
+    }
     ]
   }
 }
 ```
 
 The configuration file is typically located at:
+
 - Windows: `%APPDATA%/Claude/config/claude_desktop_config.json`
 - macOS: `~/Library/Application Support/Claude/config/claude_desktop_config.json`
 - Linux: `~/.config/Claude/config/claude_desktop_config.json`
@@ -98,6 +108,7 @@ The server uses TypeScript and implements the MCP protocol using the `@modelcont
 ### Core Components
 
 1. **PerplexityServer Class**
+
    - Implements MCP server protocol
    - Handles tool registration and execution
    - Manages error handling and server lifecycle
@@ -117,6 +128,7 @@ The server uses TypeScript and implements the MCP protocol using the `@modelcont
 ## Error Handling
 
 The server implements comprehensive error handling:
+
 - API error reporting
 - Invalid tool requests handling
 - Connection error management
@@ -152,11 +164,13 @@ This project is licensed under the ISC License.
 Common issues and solutions:
 
 1. **Server Not Found**
+
    - Verify the path in `claude_desktop_config.json` is correct
    - Ensure the server is built (`npm run build`)
    - Check if Node.js is in your PATH
 
 2. **Authentication Errors**
+
    - Verify your Perplexity API key in .env
    - Check if the API key has the required permissions
 
