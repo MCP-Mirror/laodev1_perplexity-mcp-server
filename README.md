@@ -71,18 +71,16 @@ To add this server to Claude Desktop, update your `claude_desktop_config.json`:
 
 ```json
 {
-  "mcp": {
-    "servers": [
-       "perplexity": {
+  "mcpServers": {
+    //more servers...
+    "perplexity": {
       "command": "node",
-      "args": [
-        "path\\to\\perplexity-mcp-server\\dist\\index.js"
-      ],
+      "args": ["path\\to\\perplexity-mcp-server\\dist\\index.js"],
       "env": {
         "PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY"
       }
     }
-    ]
+    //more servers...
   }
 }
 ```
