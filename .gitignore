@@ -23,7 +23,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-.history
+.history/
 
 # MacOS
 .DS_Store
